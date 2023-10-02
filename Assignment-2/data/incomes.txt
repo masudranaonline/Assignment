@@ -1,0 +1,4 @@
+Salary - 50000
+Busniess - 100000
+product sale - 12000
+Other Income - 18000
