@@ -119,7 +119,7 @@ if(!isset($_SESSION['user_id'])){
                     aria-labelledby="user-menu-button"
                     tabindex="-1">
                     <a
-                      href="#"
+                      href="logout.php"
                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       role="menuitem"
                       tabindex="-1"
@@ -287,12 +287,12 @@ if(!isset($_SESSION['user_id'])){
               <div class="px-4 py-5 sm:p-6">
                 <div class="mt-4 text-sm text-gray-500">
                   <form
-                    action="#"
+                    action="../controller//user_transfer.php"
                     method="POST">
                     <!-- Recipient's Email Input -->
                     <input
                       type="email"
-                      name="email"
+                      name="transfer_email"
                       id="email"
                       class="block w-full ring-0 outline-none py-2 text-gray-800 border-b placeholder:text-gray-400 md:text-4xl"
                       placeholder="Recipient's Email Address"
@@ -316,7 +316,7 @@ if(!isset($_SESSION['user_id'])){
                     <!-- Submit Button -->
                     <div class="mt-5">
                       <button
-                        type="submit"
+                        type="submit" name="submit" value="transfer_amount"
                         class="w-full px-6 py-3.5 text-base font-medium text-white bg-emerald-600 hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 rounded-lg md:text-xl text-center">
                         Proceed
                       </button>

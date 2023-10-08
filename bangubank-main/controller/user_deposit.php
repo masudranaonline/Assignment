@@ -5,31 +5,44 @@ if(!isset($_SESSION['user_id'])){
   header("Location:./login.php");
 }
 
-    if(isset($_POST['submit'])) {
-        if($_POST['submit'] == 'submitDeposit') {
-            $amount = $_POST['amount'];
+$pdo = require_once "../model/database.php";
 
-            $name = $_SESSION['user_name'];
-            $email = $_SESSION['user_email'];
-            $date = date("Y-m-d h:i:sa");
+    // if(isset($_POST['submit'])) {
+    //     if($_POST['submit'] == 'submitDeposit') {
+    //         $amount = $_POST['amount'];
 
-            try {
-                $pdo = require_once "../model/database.php";
+    //         $user_id = $_SESSION['user_id'];
+    //         $date = date("Y-m-d h:i:sa");
 
-              $data = $pdo->prepare("INSERT INTO deposit(name, email, amount, date) VALUES(?, ?, ?, ?)");
-              $result = $data->execute([$name, $email, $amount, $date]);
+    //         try {
+                
 
-              if($result) {
-                header('Location:../customer/deposit.php');
-              }else {
-                echo "Deposit failed!";
-              }
+    //           $data = $pdo->prepare("INSERT INTO deposit(user_id, amount, date) VALUES(?, ?, ?)");
+    //           $result = $data->execute([$user_id, $amount, $date]);
+
+    //           if($result) {
+    //             header('Location:../customer/deposit.php');
+    //           }else {
+    //             echo "Deposit failed!";
+    //           }
 
 
-            } catch (\PDOException $e) {
-              die("Database Error: ".$e->getMessage());
-              exit();
-            }             
-        }
-    }
+    //         } catch (\PDOException $e) {
+    //           die("Database Error: ".$e->getMessage());
+    //           exit();
+    //         }             
+    //     }
+    // }
 
+
+    // Show Deposit Transaction
+
+    $user_id = $_SESSION['user_id'];
+    
+    
+
+      $showQuery = $pdo->prepare("SELECT deposit.*, users.name, users.email FROM deposit LEFT JOIN users ON deposit.user_id = users.id WHERE deposit.user_id = ?");
+    // var_dump($showQuery);
+      $showQuery->execute([$user_id]);
+      $depositData = $showQuery->fetch();
+      var_dump($depositData['amount']);

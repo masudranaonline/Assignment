@@ -9,23 +9,20 @@
     if(isset($_POST['submit'])) {
         if($_POST['submit'] == 'withdraw_amount') {
             $amount = $_POST['amount'];
-
-            $name = $_SESSION['user_name'];
-            $email = $_SESSION['user_email'];
+            $user_id = $_SESSION['user_id'];
             $date = date("Y-m-d h:i:s");
 
             try {
                 $pdo = require_once "../model/database.php";
-
-                $data = $pdo->prepare("INSERT INTO withdraw(name, email, amount, date) VALUES(?, ?, ?, ?)");
-                $result = $data->execute([$name, $email, $amount, $date]);
+                
+                $data = $pdo->prepare("INSERT INTO withdraw(user_id, amount, date) VALUES(?, ?, ?)");
+                $result = $data->execute([$user_id, $amount, $date]);
                 
 
                 if($result) {
-                    // header("Location:../customer/withdraw.php");
                     echo "withdraw successfully";
-                    header('Location:../customer/withdraw.php');
-                    // header('Location:../customer/deposit.php');
+                     header('Location:../../customer/withdraw.php');
+
                 }else {
                     echo "Deposit Failed";
                 }

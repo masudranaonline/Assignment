@@ -5,6 +5,8 @@ session_start();
 if(!isset($_SESSION['user_id'])){
   header("Location:./login.php");
 }
+
+require_once "../controller/user_deposit.php";
 ?>
 <!DOCTYPE html>
 <html
@@ -295,6 +297,7 @@ if(!isset($_SESSION['user_id'])){
                 <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                   <div
                     class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+
                     <table class="min-w-full divide-y divide-gray-300">
                       <thead>
                         <tr>
@@ -321,10 +324,11 @@ if(!isset($_SESSION['user_id'])){
                         </tr>
                       </thead>
                       <tbody class="divide-y divide-gray-200 bg-white">
+                        <!-- <?php foreach($depositData as $item){ ?> -->
                         <tr>
                           <td
                             class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-800 sm:pl-0">
-                            Bruce Wayne
+                           <?php echo $depositData['name']; ?>
                           </td>
                           <td
                             class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-0">
@@ -413,6 +417,7 @@ if(!isset($_SESSION['user_id'])){
                             02 Feb 2023, 8:30 PM
                           </td>
                         </tr>
+                        <!-- <?php } ?> -->
                       </tbody>
                     </table>
                   </div>
