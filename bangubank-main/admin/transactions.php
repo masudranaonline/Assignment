@@ -51,12 +51,12 @@
                   <div class="flex space-x-4">
                     <!-- Current: "bg-sky-700 text-white", Default: "text-white hover:bg-sky-500 hover:bg-opacity-75" -->
                     <a
-                      href="./customers.html"
+                      href="./customers.php"
                       class="text-white hover:bg-sky-500 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium"
                       >Customers</a
                     >
                     <a
-                      href="./transactions.html"
+                      href="./transactions.php"
                       class="bg-sky-700 text-white rounded-md py-2 px-3 text-sm font-medium"
                       >Transactions</a
                     >
@@ -267,10 +267,13 @@
                         </tr>
                       </thead>
                       <tbody class="divide-y divide-gray-200 bg-white">
+                        <?php
+                          foreach($transactionData as $transaction){
+                        ?>
                         <tr>
                           <td
                             class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-800 sm:pl-0">
-                            Bruce Wayne
+                            <?php echo $transaction['name']; ?>
                           </td>
                           <td
                             class="whitespace-nowrap px-2 py-4 text-sm font-medium text-emerald-600">
@@ -339,6 +342,7 @@
                             02 Feb 2023, 8:30 PM
                           </td>
                         </tr>
+                        <?php } ?>
                       </tbody>
                     </table>
                   </div>

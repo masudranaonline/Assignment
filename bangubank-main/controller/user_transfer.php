@@ -5,7 +5,7 @@ session_start();
 if(!isset($_SESSION['user_id'])) {
     header("Location:./login.php");
 }
-
+$pdo = require_once "../model/database.php";
 
 if(isset($_POST['submit'])) {
     if($_POST['submit'] == 'transfer_amount') {
@@ -17,7 +17,7 @@ if(isset($_POST['submit'])) {
         $date = date("Y-m-d h:i:s");
 
         try {
-            $pdo = require_once "../model/database.php";
+            
 
             // transfer query
             $data = $pdo->prepare("INSERT INTO transfer(user_id, from_account, to_account, amount, date) VALUES(?, ?, ?, ?, ?)");
@@ -47,8 +47,10 @@ if(isset($_POST['submit'])) {
     }
 }
 
-
-
+$user_id = $_SESSION['user_id'];
+$showtransfer = $pdo->prepare("SELECT transfer.*, users.name FROM transfer LEFT JOIN users ON transfer.user_id = users.id WHERE transfer.user_id = $user_id");
+$showtransfer->execute();
+$transferData = $showtransfer->fetchAll();
 
 
 

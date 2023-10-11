@@ -6,7 +6,24 @@ if(!isset($_SESSION['user_id'])){
   header("Location:./login.php");
 }
 
-require_once "../controller/user_deposit.php";
+include "../controller/currentBalance.php";
+// require_once "../controller/user_deposit.php";
+
+//     //Show withdraw  Transaction Information
+
+//     $user_id = $_SESSION['user_id'];
+
+//     $showWitdraw = $pdo->prepare("SELECT withdraw.*, users.name, users.email FROM withdraw LEFT JOIN users ON withdraw.user_id = users.id WHERE withdraw.user_id = $user_id");
+//     $showWitdraw->execute();
+//     $withdrawData = $showWitdraw->fetchAll();
+
+
+//     // show transfer Transaction Information
+
+//     $showtransfer = $pdo->prepare("SELECT transfer.*, users.name FROM transfer LEFT JOIN users ON transfer.user_id = users.id WHERE transfer.user_id = $user_id");
+//     $showtransfer->execute();
+//     $transferData = $showtransfer->fetchAll();
+
 ?>
 <!DOCTYPE html>
 <html
@@ -278,7 +295,10 @@ require_once "../controller/user_deposit.php";
                 </dt>
                 <dd
                   class="w-full flex-none text-3xl font-medium leading-10 tracking-tight text-gray-900">
-                  $10,115,091.00
+                  <?php
+                    echo "$".$currentBalance;
+                  
+                  ?>
                 </dd>
               </div>
             </dl>
@@ -298,13 +318,15 @@ require_once "../controller/user_deposit.php";
                   <div
                     class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
 
-                    <table class="min-w-full divide-y divide-gray-300">
+                    <!-- All deposit transaction -->
+                    <h2 class="border font-bold text-center bg-red-400">All Deposit</h2>
+                    <!-- <table class="min-w-full divide-y divide-gray-300">
                       <thead>
                         <tr>
                           <th
                             scope="col"
                             class="whitespace-nowrap py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
-                            Receiver Name
+                             Name
                           </th>
                           <th
                             scope="col"
@@ -324,102 +346,172 @@ require_once "../controller/user_deposit.php";
                         </tr>
                       </thead>
                       <tbody class="divide-y divide-gray-200 bg-white">
-                        <!-- <?php foreach($depositData as $item){ ?> -->
-                        <tr>
-                          <td
-                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-800 sm:pl-0">
-                           <?php echo $depositData['name']; ?>
-                          </td>
-                          <td
-                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-0">
-                            bruce@wayne.com
-                          </td>
-                          <td
-                            class="whitespace-nowrap px-2 py-4 text-sm font-medium text-emerald-600">
-                            +$10,240
-                          </td>
-                          <td
-                            class="whitespace-nowrap px-2 py-4 text-sm text-gray-500">
-                            29 Sep 2023, 09:25 AM
-                          </td>
-                        </tr>
-                        <tr>
-                          <td
-                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-800 sm:pl-0">
-                            Al Nahian
-                          </td>
-                          <td
-                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-0">
-                            alnahian@2003.com
-                          </td>
-                          <td
-                            class="whitespace-nowrap px-2 py-4 text-sm font-medium text-red-600">
-                            -$2,500
-                          </td>
-                          <td
-                            class="whitespace-nowrap px-2 py-4 text-sm text-gray-500">
-                            15 Sep 2023, 06:14 PM
-                          </td>
-                        </tr>
-                        <tr>
-                          <td
-                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-800 sm:pl-0">
-                            Muhammad Alp Arslan
-                          </td>
-                          <td
-                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-0">
-                            alp@arslan.com
-                          </td>
-                          <td
-                            class="whitespace-nowrap px-2 py-4 text-sm font-medium text-emerald-600">
-                            +$49,556
-                          </td>
-                          <td
-                            class="whitespace-nowrap px-2 py-4 text-sm text-gray-500">
-                            03 Jul 2023, 12:55 AM
-                          </td>
-                        </tr>
-
-                        <tr>
-                          <td
-                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-800 sm:pl-0">
-                            Povilas Korop
-                          </td>
-                          <td
-                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-0">
-                            povilas@korop.com
-                          </td>
-                          <td
-                            class="whitespace-nowrap px-2 py-4 text-sm font-medium text-emerald-600">
-                            +$6,125
-                          </td>
-                          <td
-                            class="whitespace-nowrap px-2 py-4 text-sm text-gray-500">
-                            07 Jun 2023, 10:00 PM
-                          </td>
-                        </tr>
-
-                        <tr>
-                          <td
-                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-800 sm:pl-0">
-                            Martin Joo
-                          </td>
-                          <td
-                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-0">
-                            martin@joo.com
-                          </td>
-                          <td
-                            class="whitespace-nowrap px-2 py-4 text-sm font-medium text-red-600">
-                            -$125
-                          </td>
-                          <td
-                            class="whitespace-nowrap px-2 py-4 text-sm text-gray-500">
-                            02 Feb 2023, 8:30 PM
-                          </td>
-                        </tr>
-                        <!-- <?php } ?> -->
+                        <?php
+                         
+                          $totalDeposit = 0;
+                          foreach($depositData as $item){
+                            $totalDeposit1 += (int) $item['amount'];
+                        ?>
+                            <tr>
+                              <td
+                                class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-800 sm:pl-0">
+                              <?php echo $item['name']; ?>
+                              </td>
+                              <td
+                                class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-0">
+                                <?php echo $item['email']; ?>
+                              </td>
+                              <td
+                                class="whitespace-nowrap px-2 py-4 text-sm font-medium text-emerald-600">
+                                <?php echo "+$".$item['amount']; ?>
+                              </td>
+                              <td
+                                class="whitespace-nowrap px-2 py-4 text-sm text-gray-500">
+                                <?php echo $item['date']; ?>
+                              </td>
+                            </tr>
+                            
+                        <?php 
+                      }
+                       ?>
+                       <tr>
+                        <td colspan="2">Total</td>
+                        <td><?php echo $totalDeposit1; ?></td>
+                       </tr>
                       </tbody>
-                    </table>
+                    </table> -->
+
+                      <!-- All withdraw transaction -->
+                    <h2 class="border font-bold text-center bg-red-400 mt-2">All Withdraw</h2>
+                    <!-- <table class="min-w-full divide-y divide-gray-300">
+                      <thead>
+                        <tr>
+                          <th
+                            scope="col"
+                            class="whitespace-nowrap py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                             Name
+                          </th>
+                          <th
+                            scope="col"
+                            class="whitespace-nowrap py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                            Email
+                          </th>
+                          <th
+                            scope="col"
+                            class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">
+                            Amount
+                          </th>
+                          <th
+                            scope="col"
+                            class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">
+                            Date
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody class="divide-y divide-gray-200 bg-white">
+                        <?php
+                         
+                          $totalWithdraw = 0;
+                          foreach($withdrawData as $witem){
+                            $totalWithdraw1 += (int) $witem['amount'];
+                        ?>
+                            <tr>
+                              <td
+                                class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-800 sm:pl-0">
+                              <?php echo $witem['name']; ?>
+                              </td>
+                              <td
+                                class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-0">
+                                <?php echo $witem['email']; ?>
+                              </td>
+                              <td
+                                class="whitespace-nowrap px-2 py-4 text-sm font-medium text-emerald-600">
+                                <?php echo "+$".$witem['amount']; ?>
+                              </td>
+                              <td
+                                class="whitespace-nowrap px-2 py-4 text-sm text-gray-500">
+                                <?php echo $witem['date']; ?>
+                              </td>
+                            </tr>
+                            
+                        <?php 
+                      }
+                       ?>
+                       <tr>
+                        <td colspan="2">Total</td>
+                        <td><?php echo $totalWithdraw1; ?></td>
+                       </tr>
+                      </tbody>
+                    </table> -->
+
+                    <h2 class="border font-bold text-center bg-red-400">All Transfer</h2>
+                    <!-- <table class="min-w-full divide-y divide-gray-300">
+                      <thead>
+                        <tr>
+                          <th
+                            scope="col"
+                            class="whitespace-nowrap py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                             Name
+                          </th>
+                          <th
+                            scope="col"
+                            class="whitespace-nowrap py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                            FromEmail
+                          </th>
+                          <th
+                            scope="col"
+                            class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">
+                            ToEmail
+                          </th>
+                          <th
+                            scope="col"
+                            class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">
+                            Amount
+                          </th>
+                          <th
+                            scope="col"
+                            class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">
+                            Date
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody class="divide-y divide-gray-200 bg-white">
+                        <?php
+                        foreach($transferData as $titem){
+                          
+                        ?>
+                            <tr>
+                              <td
+                                class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-800 sm:pl-0">
+                              <?php echo $titem['name']; ?>
+                              </td>
+                              <td
+                                class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-0">
+                                <?php echo $titem['from_account']; ?>
+                              </td>
+                              <td
+                                class="whitespace-nowrap px-2 py-4 text-sm font-medium text-emerald-600">
+                                <?php echo $titem['to_account']; ?>
+                              </td>
+                              
+                              <td
+                                class="whitespace-nowrap px-2 py-4 text-sm text-gray-500">
+                                <?php echo "+$".$titem['amount']; ?>
+                              </td>
+                              <td
+                                class="whitespace-nowrap px-2 py-4 text-sm font-medium text-emerald-600">
+                                <?php echo $titem['date']; ?>
+                              </td>
+                            </tr>
+                           
+                            
+                        <?php 
+                      }
+                       ?>
+                      </tbody>
+                    </table> -->
+
+
                   </div>
                 </div>
               </div>

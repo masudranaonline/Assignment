@@ -51,12 +51,12 @@
                   <div class="flex space-x-4">
                     <!-- Current: "bg-sky-700 text-white", Default: "text-white hover:bg-sky-500 hover:bg-opacity-75" -->
                     <a
-                      href="./customers.html"
+                      href="./customers.php"
                       class="px-3 py-2 text-sm font-medium text-white rounded-md bg-sky-700"
                       >Customers</a
                     >
                     <a
-                      href="./transactions.html"
+                      href="./transactions.php"
                       class="px-3 py-2 text-sm font-medium text-white rounded-md hover:bg-sky-500 hover:bg-opacity-75"
                       >Transactions</a
                     >
@@ -234,11 +234,11 @@
       <main class="-mt-32">
         <div class="px-4 pb-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div class="bg-white rounded-lg">
-            <form
+            <form action="../controller/addCustomerController.php" method="POST" enctype="multipart/form-data"
               class="bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
               <div class="px-4 py-6 sm:p-8">
                 <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                  <div class="sm:col-span-3">
+                  <!-- <div class="sm:col-span-3">
                     <label
                       for="first-name"
                       class="block text-sm font-medium leading-6 text-gray-900"
@@ -253,19 +253,19 @@
                         required
                         class="block w-full p-2 text-gray-900 border-0 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6" />
                     </div>
-                  </div>
+                  </div> -->
 
-                  <div class="sm:col-span-3">
+                  <div class="sm:col-span-6">
                     <label
                       for="last-name"
                       class="block text-sm font-medium leading-6 text-gray-900"
-                      >Last Name</label
+                      > Name</label
                     >
                     <div class="mt-2">
                       <input
                         type="text"
-                        name="last-name"
-                        id="last-name"
+                        name="name"
+                        id="name"
                         autocomplete="family-name"
                         required
                         class="block w-full p-2 text-gray-900 border-0 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6" />
@@ -315,7 +315,7 @@
                   Cancel
                 </button>
                 <button
-                  type="submit"
+                  type="submit" name="submit" value="AddCustomer"
                   class="px-3 py-2 text-sm font-semibold text-white rounded-md shadow-sm bg-sky-600 hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600">
                   Create Customer
                 </button>

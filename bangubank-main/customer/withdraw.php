@@ -1,10 +1,12 @@
 <?php
 
-session_start();
+// session_start();
 
-if(!isset($_SESSION['user_id'])){
-  header("Location:./login.php");
-}
+// if(!isset($_SESSION['user_id'])){
+//   header("Location:./login.php");
+// }
+
+require_once "../controller/user_withdraw.php";
 ?>
 <!DOCTYPE html>
 <html
@@ -290,7 +292,7 @@ if(!isset($_SESSION['user_id'])){
                 </h3>
                 <div class="mt-4 text-sm text-gray-500">
                   <form
-                    action="../controller//user_withdraw.php"
+                    action="../controller/user_withdraw.php"
                     method="POST">
                     <!-- Input Field -->
                     <div class="relative mt-2 rounded-md">
@@ -319,6 +321,67 @@ if(!isset($_SESSION['user_id'])){
                 </div>
               </div>
             </div>
+
+            <table class="min-w-full divide-y divide-gray-300">
+                      <thead>
+                        <tr>
+                          <th
+                            scope="col"
+                            class="whitespace-nowrap py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                             Name
+                          </th>
+                          <th
+                            scope="col"
+                            class="whitespace-nowrap py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                            Email
+                          </th>
+                          <th
+                            scope="col"
+                            class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">
+                            Amount
+                          </th>
+                          <th
+                            scope="col"
+                            class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">
+                            Date
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody class="divide-y divide-gray-200 bg-white">
+                        <?php
+                         
+                          $totalWithdraw = 0;
+                          foreach($withdrawData as $witem){
+                            $totalWithdraw += (int) $witem['amount'];
+                        ?>
+                            <tr>
+                              <td
+                                class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-800 sm:pl-0">
+                              <?php echo $witem['name']; ?>
+                              </td>
+                              <td
+                                class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-0">
+                                <?php echo $witem['email']; ?>
+                              </td>
+                              <td
+                                class="whitespace-nowrap px-2 py-4 text-sm font-medium text-emerald-600">
+                                <?php echo "+$".$witem['amount']; ?>
+                              </td>
+                              <td
+                                class="whitespace-nowrap px-2 py-4 text-sm text-gray-500">
+                                <?php echo $witem['date']; ?>
+                              </td>
+                            </tr>
+                            
+                        <?php 
+                      }
+                       ?>
+                       <tr>
+                        <td colspan="2">Total</td>
+                        <td><?php echo "$".$totalWithdraw; ?></td>
+                       </tr>
+                      </tbody>
+                    </table>
           </div>
         </div>
       </main>
