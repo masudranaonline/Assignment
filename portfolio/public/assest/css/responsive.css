@@ -1,0 +1,199 @@
+/* // Extra large devices */
+@media(min-width:1200px) {
+
+}
+
+/* // Large devices */
+@media(min-width:992px) and (max-width:1199px) {
+    .carousel-item .carousel-caption P {
+        font-size: 2rem;
+    }
+    img {
+        height: 400px;
+        width: 300px;
+    }
+    #about .about_us h1 {
+        font-size: 2rem;
+    }
+    #about .about_us p {
+        font-size: 1rem;
+    }
+
+
+
+}
+
+/* // tablet  devices laptop devices */
+@media(min-width:768px) and (max-width:991px) {
+    .carousel-item .carousel-caption P {
+        font-size: 1.8rem;
+    }
+    .carousel-item .carousel-caption h5 {
+        font-size: 1.5rem;
+    }
+    img {
+        height: 330px;
+         width: 225px;
+    }
+    #about .about_us h1 {
+        font-size: 1.7rem;
+    }
+    #about .about_us p {
+        font-size: .9rem;
+         line-height: normal;
+    }
+    #about .my_self .ber1 span {
+        font-size: 1rem;
+    }
+    #service .service_all .ditels h2 {
+        font-size: 1.5rem;
+    }
+    #testimonial .test1 p {
+        font-size: 1rem;
+    }
+    #contact .cont_info .address a {
+        font-size: .8rem;
+    }
+    #contact .cont_info .mail a {
+        font-size: .8rem;
+    }
+    #contact .cont_info .phone a {
+        font-size: .8rem;
+    }
+    #menuber {
+        position: absolute;
+    }
+
+}
+
+/* // mobile landscape devices landscape phones*/
+@media(min-width:576px) and (max-width:767px) {
+    button.navbar-toggler.collapsed {
+        margin-left: 30%;
+    }
+    button.navbar-toggler {
+        margin-left: 30%;
+    }
+    .d-none {
+        display:block !important;
+    }
+    .carousel-item .carousel-caption h5 {
+        font-size: 1.6rem;
+    }
+    .carousel-item .carousel-caption P {
+        font-size: 1.9rem;
+    }
+    #about .about_us h1 {
+        font-size: 1.5rem;
+    }
+    #about .about_us p {
+        font-size: 1rem;
+    }
+    #about .my_self .ber1 span {
+        font-size: 1.2rem;
+    }
+    #testimonial .test1 p {
+        font-size: .7rem;
+    }
+    #testimonial .test_heading {
+        padding: 2rem 0 1rem;
+    }
+    #testimonial .test1 {
+        padding-top: 0;
+    }
+    #menuber {
+        position: absolute;
+    }
+
+}
+
+/* // mobile  devices phones*/
+@media(min-width:480px) and (max-width:575px) {
+    button.navbar-toggler.collapsed {
+        margin-left: 30%;
+    }
+    button.navbar-toggler {
+        margin-left: 30%;
+    }
+    .d-none {
+        display:block !important;
+    }
+    .carousel-item .carousel-caption h5 {
+        font-size: 1.4rem;
+    }
+    .carousel-item .carousel-caption P {
+        font-size: 1.6rem;
+    }
+    .mrbtn {
+        width: 10rem;
+    }
+
+    #about .about_us h1 {
+        font-size: 1.5rem;
+    }
+    #about .about_us p {
+        font-size: 1rem;
+    }
+    #testimonial .test1 p {
+        font-size: .7rem;
+    }
+    #testimonial .test_heading {
+        padding: 2rem 0 1rem;
+    }
+    #testimonial .test1 {
+        padding-top: 0;
+    }
+    #testimonial .test2 {
+        padding-top: 0;
+    }
+    #menuber {
+        position: absolute;
+    }
+
+}
+
+/* // mobile  devices phones 480px */
+@media(min-width:320px) and (max-width:479px) {
+    button.navbar-toggler.collapsed {
+        margin-left: 20%;
+    }
+    button.navbar-toggler {
+        margin-left: 20%;
+    }
+    .d-none {
+        display:block !important;
+    }
+    .carousel-item .carousel-caption h5 {
+        font-size: 1rem;
+    }
+    .carousel-item .carousel-caption P {
+        font-size: 1.1rem;
+    }
+    #menuber {
+        position: absolute;
+    }
+    .mrbtn {
+        width: 6rem;
+        font-size: .7rem;
+    }
+    #about .about_us h1 {
+        font-size: 1.5rem;
+    }
+    #about .about_us p {
+        font-size: .8rem;
+        line-height: 1.5rem;
+    }
+    #testimonial .test1 p {
+        font-size: .7rem;
+    }
+    #testimonial .test_heading {
+        padding: 2rem 0 0;
+    }
+    #testimonial .test1 {
+        padding-top: 0;
+    }
+    #testimonial .test2 {
+        padding-top: 0;
+    }
+   
+}

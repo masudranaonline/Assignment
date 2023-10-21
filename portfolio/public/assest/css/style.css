@@ -1,0 +1,538 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+ul,li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+ul,
+li,
+p,
+.navbar,
+.navbar-nav {
+    padding: 0;
+    margin: 0;
+    font-family: cursive;
+}
+.mrbtn {
+    width: 12rem;
+    height: 3rem;
+    font-size: 1.1rem;
+    font-family: cursive;
+    text-transform: uppercase;
+    border: none;
+    border-radius: .4rem;
+    background-color: #a4dd20c2;
+}
+button:hover .mrbtn {
+    background-color: #3eee09;
+}
+
+marquee {
+    background-color: #000;
+    color: #ffffff;
+    font-family: cursive;
+    font-weight: 900;
+}
+
+/* Common css */
+
+/* start menuber section */
+#menuber {
+    width: 100%;
+     height: 4.5rem; 
+    background-color: #fafafa;
+    padding: 1.5rem;
+     position: sticky;
+    top: 0; 
+    z-index: 1;
+}
+button.navbar-toggler.collapsed {
+    margin-left: 50%;
+    /* position: fixed; */
+}
+button.navbar-toggler {
+    margin-left: 50%;
+    position: absolute;
+}
+    
+#menuber  span   i.fas.fa-bars {
+        color: #000;
+        border: 0.1px solid;
+        padding: 5px;
+    }
+
+
+
+#menuber .logo {
+    display: inline-block;
+} 
+#menuber .logo a {
+    font-size: 2rem;
+    color: #3eee09;
+}
+#menuber .menu {
+    display: inline-block;
+    float: right;
+}
+#menuber .menu ul li {
+    display: inline-block;
+    padding: 0 .8rem;
+}
+#menuber .menu ul li a {
+    color: #242222;
+    font-size: 1rem;
+    font-weight: 300;
+}
+#menuber .menu ul li a:hover {
+    color: #ff0000;
+}
+/* end menuber section */
+
+.carousel-inner .carousel-item img {
+    width: 100%;
+    height: 40rem;
+    
+}
+.carousel-item .carousel-caption {
+    top: 32%;
+    
+}
+.carousel-item .carousel-caption  span {
+    color: #ffffff;
+}
+.carousel-item .carousel-caption h5 {
+    font-size: 2rem;
+    color: #000;
+}
+.carousel-item .carousel-caption P {
+    font-size: 3rem;
+    color: #ffffff;
+    padding-bottom: 4rem;
+}
+/* end banner section */
+#about {
+    padding: 3rem 0;
+    background-color: #f8eeee;
+}
+#about .img imh {
+    height: 400px;
+    width: 320px;
+}
+
+#about .heading {
+    text-align: center;
+    padding-bottom: 2rem;
+}
+#about .heading h5 {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    color: #000;
+    padding: 0 0 1rem 0;
+    font-family: cursive;
+}
+#about .about_us h1 {
+    text-transform: uppercase;
+    font-size: 3rem;
+    color: #000;
+    padding: 0 0 1rem 0;
+    font-family: cursive;
+}
+#about .about_us p {
+    font-size: 1.1rem;
+    line-height: 2rem;
+    font-weight: 400;
+    font-family: cursive;
+    text-align: justify;
+}
+#about .about_us p span.self {
+    padding: 1rem 0;
+}
+#about .img {
+    text-align: center;
+}
+#about .my_self .ber1 {
+    padding-bottom: 1.5rem;
+}
+#about .my_self .ber1 span {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-family: cursive;
+}
+
+
+/* #about .about_us .text-content {
+    height: 4px;
+    width: 70px;
+    background-color: #3eee09;
+} */
+
+/* start service section */
+#service {
+     background-color: #faf3f3; 
+    padding: 3rem 0;
+}
+#service .ser_heading {
+    text-align: center;
+}
+#service .ser_heading h1 {
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    color: #000;
+    padding: 0 0 1rem 0;
+    font-family: cursive;
+    padding-bottom: 3rem;
+}
+#service .service_all {
+    position: relative;
+    margin: 2rem 0;
+}
+
+#service .service_all:hover .icon {
+    background-color: #5bc5f4;
+    box-shadow: 0 3px 2px rgba(0, 0, 0, 0.27);
+    transition: 0.5s;
+} 
+#service .service_all .icon {
+    width: 6.2rem ;
+    height: 6.2rem;
+     background-color: #f8eeee;
+     border-radius: 50%;
+     position: absolute;
+     top: -3.1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border: .4rem solid #ffffff;
+}
+#service .service_all .icon .icon1:hover {
+    background-color: #5bc5f4;
+    box-shadow: 0 3px 2px rgba(0, 0, 0, 0.27);
+    transition: 0.5s;
+}
+#service .service_all .icon .icon1 {
+    width: 5rem ;
+    height: 5rem;
+     background-color: #f8eeee;
+     /* top: -3rem; */
+     border-radius: 50%;
+    border: .2rem solid #ffffff;
+    margin: 0.2rem;
+}
+#service .service_all .icon .icon1 i {
+    /* font-size: 1.2rem;
+    color: #000; */
+    text-align: center;
+    font-size: 3rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 22%;
+}
+#service .service_all:hover .ditels {
+    box-shadow: 0 0 1rem rgb(32, 30, 30);
+    transition: 0.5s;
+    background-color: #e0dcdc;
+}
+#service .service_all .ditels {
+    text-align: center;
+    background-color: #f3e7e7;
+    padding: 3.6rem 2rem 3rem;
+}
+#service .service_all .ditels h2 {
+    padding-bottom: 1rem;
+    font-size: 1.7rem;
+    text-transform: capitalize;
+}
+#service .service_all .ditels p {
+    text-align: justify;
+    font-size: 0.9rem;
+}
+/* end service section */
+/* start testimonial section */
+#testimonial {
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.5)), url(../img/testimonial.jpg) fixed center;
+   height: 25rem;
+   width: 100%;
+}
+#testimonial .test_heading {
+    text-align: center;
+    padding: 2rem 0;
+}
+#testimonial .test_heading h1 {
+    color: #ffffff;
+}
+#testimonial .test1 {
+    padding-top: 1rem;
+}
+#testimonial .test1 h6 {
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+#testimonial .test1 p {
+    color: #ffffff;
+    text-align: justify;
+    padding: 0 2.2rem;
+    font-size: 1.1rem;
+    /* line-height: 1.8rem; */
+}
+
+#testimonial .test1 h5 {
+    color: #ffffff;
+    text-align: end;
+    font-size: 1.5rem;
+}
+#testimonial .test2 {
+    text-align: center;
+    padding-top: 1rem;
+}
+#testimonial .test2 img {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+}
+#testimonial .test2 h4 {
+    color: #ffffff;
+    text-transform: capitalize;
+    font-size: 2rem;
+    font-weight: lighter;
+}
+
+#testimonial .test2 p {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: .8rem;
+    line-height: 2rem;
+}
+/* end testimonial section */
+
+/* start portfolio section */
+#portfolio {
+    width: 100%;
+    padding: 3rem 0;
+    background-color: blanchedalmond;
+}
+#portfolio .port_heading {
+    text-align: center;
+}
+#portfolio .port_heading h2 {
+    color: black;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 600 ;
+    padding-bottom: 3rem;
+}
+
+#portfolio .mail_gly {
+    margin-bottom: 1.5rem;
+}
+#portfolio .mail_gly .gly_img {
+    position: relative;
+}
+#portfolio .mail_gly .gly_img .gly_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.452);
+    text-align: center;
+    transition: 0.5s;
+    opacity: 0;
+}
+#portfolio .mail_gly .gly_img .gly_overlay a {
+    height: 3rem;
+    width: 3rem;
+    background-color: #5bc5f4;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    border-radius: 50%;
+
+}
+#portfolio .mail_gly .gly_img .gly_overlay a i {
+    line-height: 3rem;
+    color: #ffffff;
+    font-size: 1.7rem;
+}
+#portfolio .mail_gly .gly_img:hover .gly_overlay {
+    height: 100%;
+    opacity: 1;
+}
+
+/* end portfolio section */
+/*start contact section */
+#contact {
+    padding: 3rem 0;
+    background-color: #f8eeee;
+}
+#contact .cont_heading {
+    text-align: center;
+} 
+#contact .cont_heading h2 {
+    color: black;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 600 ;
+    padding-bottom: 3rem;
+}
+#contact .cont_info h4 {
+    font-size: 1.3rem;
+    text-transform: capitalize;
+    padding-bottom: 2rem;
+}
+#contact .cont_info .phone {
+    padding-bottom: 0.2rem;
+}
+#contact .cont_info .phone a {   
+    font-size: 1.1rem;
+    color: #000000;
+    /* font-weight: 600; */
+    font-family: cursive;
+
+}
+#contact .cont_info .phone a i {
+    font-size: 1.1rem;
+    padding-right: 1rem;
+    color: #000;
+}
+
+#contact .cont_info .mail {
+    padding-bottom: 0.2rem;
+
+    font-family: cursive;
+}
+#contact .cont_info .mail a {
+    font-size: 1.1rem;
+    color: #000000;
+    /* font-weight: 600; */
+}
+#contact .cont_info .mail a i {
+    font-size: 1.1rem;
+    padding-right: 1rem;
+    color: #000;
+}
+
+#contact .cont_info .address {
+    padding-bottom: 0.2rem;
+    font-family: cursive;
+}
+#contact .cont_info .address a {
+    font-size: 1.1rem;
+    color: #000000;
+     
+}
+#contact .cont_info .address a i {
+    font-size: 1.1rem;
+    padding-right: 1rem;
+    color: #000;
+}
+#contact .social_media {
+    padding-top: 2rem;
+}
+#contact .social_media li {
+    display: inline-block;
+}
+#contact .social_media li a {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: block;
+    background-color: blue;
+    border-radius: 50%;
+    text-align: center;
+}
+#contact .social_media li a:hover {
+    background-color: #736ea7;
+}
+#contact .social_media li a i:hover {
+    color: #000;
+}
+#contact .social_media li a i {
+    line-height: 2.5rem;
+    color: #ffffff;
+    font-size: 1.3rem;
+    transition: .5s;
+}
+#contact .massage h4 {
+    font-size: 1.3rem;
+    text-transform: capitalize;
+    padding-bottom: 1rem;
+}
+#contact .massage .cont1 {
+    width: 50%;
+    height: 2.7rem;
+    border: 1px solid;
+    padding-left: 1rem;
+    margin: 0 0 1rem 0;
+}
+#contact .massage .cont2 {
+    width: 48%;
+    height: 2.7rem;
+    border: 1px solid;
+    padding-left: 1rem;
+    margin: 0 0 1rem 0;
+}
+#contact .massage .cont3 {
+    width: 50%;
+    height: 2.7rem;
+    border: 1px solid;
+    padding-left: 1rem;
+    margin: 0 0 1rem 0;
+}
+#contact .massage .cont4 {
+    width: 48%;
+    height: 2.7rem;
+    border: 1px solid;
+    padding-left: 1rem;
+    margin: 0 0 1rem 0;
+}
+#contact .massage .cont5 {
+    width: 100%;
+    height: 10rem;
+    padding-left: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
