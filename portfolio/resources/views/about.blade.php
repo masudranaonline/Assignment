@@ -12,7 +12,7 @@
       <div class="row">
         <div class="col-md-4">
           <div class="about_us">
-            {{-- @php echo explode($data); @endphp --}}
+
 
 
             <h1>HI, I'M {{ $data->name }}</h1>
